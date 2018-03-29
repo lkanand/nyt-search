@@ -1,0 +1,61 @@
+.commentModal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(198, 198, 198, 0.5);
+}
+
+.commentModalContent{
+	background: white;
+	width: 40%;
+	position: absolute;
+	top: 20%;
+	left: 30%;
+	padding: 10px 25px;
+}
+
+.fa-times-circle{
+	float: right;
+	font-size: 30px;
+}
+
+.fa-times-circle:hover{
+	cursor: pointer;
+}
+
+.commentModalTitle{
+	padding-top: 15px;
+	padding-bottom: 5px;
+	font-size: 35px;
+}
+
+.commentModalSubtitle{
+	padding-bottom: 15px;
+	border-bottom: 1px solid black;
+	margin-top: 0;
+	margin-bottom: 0;
+	font-family: "Arial";
+	font-size: 25px;
+}
+
+.newComment{
+	width: 100%;
+	font-size: 18px;
+	margin-top: 0;
+	margin-bottom: 10px;
+	box-sizing: border-box;
+}
+
+.submitComment {
+	float: right;
+	margin-right: 0;
+	font-size: 15px;
+	margin-bottom: 0px;
+}
+
+.displayNone{
+	display: none;
+}

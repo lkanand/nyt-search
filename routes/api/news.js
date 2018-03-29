@@ -3,7 +3,8 @@ const nytController = require("../../controllers/nytController");
 
 router.route("/:id")
 	.get(nytController.findById)
-	.delete(nytController.deleteArticle);
+	.delete(nytController.deleteArticle)
+	.put(nytController.deleteComment);
 
 router.route("/")
 	.get(nytController.getSavedArticles)

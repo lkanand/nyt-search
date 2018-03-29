@@ -33,7 +33,7 @@ const Articles = props => {
 					</div>
 					<div className = "articleButtonContainer">
 						<SaveButton index = {index} saved = {true} saveOrUnsave = {props.unsave} />
-						<CommentButton index = {index} />
+						<CommentButton index = {index} showModal = {props.showModal}/>
 					</div>
 				</div>
 			</div>

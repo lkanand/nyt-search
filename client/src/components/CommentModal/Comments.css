@@ -1,0 +1,45 @@
+.individualComment {
+	padding: 18px 10px;
+	display: table;
+	width: 100%;
+	box-sizing: border-box;
+	border-bottom: 1px solid black;
+	line-height: 1.5rem;
+}
+
+.individualComment p {
+	font-size: 18px;
+	font-family: 'Arial';
+	margin: 0;
+	float: left;
+	width: 90%;
+}
+
+.individualComment:last-child {
+	border-bottom: none;
+}
+
+.commentsContainer h3{
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.fa-times{
+	float: right;
+	font-size: 25px;
+	color: black;
+}
+
+.fa-times:hover{
+	cursor: pointer;
+}
+
+.pWrapper{
+	display: table-cell;
+}
+
+.faWrapper{
+	display: table-cell;
+	vertical-align: middle;
+}

@@ -23,6 +23,18 @@ export default {
 
 	getSavedArticles: function() {
 		return axios.get("/api/news/");
+	},
+
+	submitComment: function(data) {
+		return axios.post("/api/comments/", data);
+	},
+
+	getArticleComments: function(articleId) {
+		return axios.get("/api/comments/" + articleId);
+	},
+
+	deleteComment: function(data) {
+		return axios.put("/api/news/" + data.articleId, data);
 	}
 };
 
