@@ -1,0 +1,20 @@
+.subheader{
+	background: black;
+	color: white;
+	text-align: left;
+	width: 95%;
+	margin: 0 auto;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
+}
+
+h3{
+	font-family: 'Arial';
+	font-size: 23px;
+	padding-left: 20px;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+

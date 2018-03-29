@@ -1,0 +1,41 @@
+.saveButton, .commentButton{
+	font-size: 15px;
+	margin-left: 0;
+	margin-right: 0;
+	padding: 5px 8px;
+}
+
+.commentButton{
+	margin-right: 8px;
+}
+
+.saveButton:after{
+	content: "Save";
+}
+
+.saveButton:hover:after{
+	content: "Saved";
+}
+
+.savedButton{
+	font-size: 15px;
+	margin-left: 0;
+	margin-right: 0;
+	float: right;
+	padding: 5px 8px;
+	background: black;
+	color: white;
+}
+
+.savedButton:hover{
+	background: white;
+	color: black;
+}
+
+.savedButton:after{
+	content: "Saved";
+}
+
+.savedButton:hover:after{
+	content: "Save";
+}

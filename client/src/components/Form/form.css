@@ -1,0 +1,48 @@
+.placeholder {
+	font-size: 22px;
+	color: black;
+	font-family:'Arial';
+	margin-bottom: 6px;
+	margin-top: 0;
+}
+
+.input {
+	font-size: 22px;
+	font-family: 'Arial';
+	width: 100%;
+	box-sizing: border-box;
+	margin-bottom: 23px;
+}
+
+input[type=date]::-webkit-inner-spin-button, input[type=date]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	display: none;
+}
+
+.buttonContainer {
+	display: inline-block;
+	width: 100%;
+}
+
+.buttonContainer button {
+	float: right;
+	margin-right: 0;
+	border: 1px solid black;
+}
+
+.disabledFormSubmit:hover{
+	cursor: auto;
+	color: #ccc;
+	background: white;
+}
+
+.activeFormSubmit:hover{
+	cursor: pointer;
+	color: white;
+	background: black;
+}
+
+button:disabled {
+	color: #ccc;
+}
+
