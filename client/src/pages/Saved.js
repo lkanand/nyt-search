@@ -106,7 +106,6 @@ class Saved extends Component {
 			}
 
 			let commentsCopy = that.state.comments; 
-			console.log(index);
 			commentsCopy.splice(index, 1);
 			that.setState({comments: commentsCopy});
 		});
