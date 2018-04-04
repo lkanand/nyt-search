@@ -1,0 +1,51 @@
+.savedModal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 5;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(175, 175, 175, 1);
+}
+
+.savedModalContent{
+	background: white;
+	width: 40%;
+	position: absolute;
+	top: 20%;
+	left: 30%;
+	padding: 10px 25px;
+}
+
+.fa-times-circle{
+	float: right;
+	font-size: 30px;
+}
+
+.fa-times-circle:hover{
+	cursor: pointer;
+}
+
+.savedModalTitle{
+	padding-top: 15px;
+	padding-bottom: 5px;
+	font-size: 35px;
+}
+
+.articlesContainer ul{
+	list-style-type: square;
+	padding-left: 25px;
+	font-size: 18px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.articlesContainer li{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+.displayNone{
+	display: none;
+}

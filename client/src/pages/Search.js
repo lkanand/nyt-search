@@ -6,7 +6,7 @@ import {Input, Placeholder, FormSubmit} from "../components/Form";
 import ArticlesList from "../components/ArticlesList/ArticlesList";
 import API from "../utils/API";
 
-var formStyle = {
+const formStyle = {
 	padding: "25px"
 };
 
@@ -64,6 +64,10 @@ class Search extends Component {
 	saveOrUnsave = (index, saved) => {
 		if(saved === false) {
 			API.saveArticle(this.state.results[index]).then(response => {
+				const article = {
+					title: this.state.results[index].headline.main
+				};
+				this.props.socket.emit("saved article", article);
 				this.reverseSaved(index, response.data);
 			});
 		}
@@ -82,7 +86,7 @@ class Search extends Component {
 					<Content>
 						<form style = {formStyle}>
 							<Placeholder>Topic</Placeholder>
-							<Input type = "text" name = "topic" value = {this.state.topic} onChange = {this.handleInputChange}/>
+							<Input type = "text" name = "topic" value = {this.state.topic} onChange = {this.handleInputChange} />
 							<Placeholder>Start Date</Placeholder>
 							<Input type = "date" name = "start" value = {this.state.start} onChange = {this.handleInputChange} max = {today} />
 							<Placeholder>End Date</Placeholder>

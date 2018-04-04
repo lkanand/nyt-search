@@ -17,6 +17,9 @@ class Saved extends Component {
 
 	componentDidMount() {
 		this.loadArticles();
+		this.props.socket.on("saved article", article => {
+			this.loadArticles();
+		});
 	};
 
 	loadArticles = () => {
@@ -109,6 +112,10 @@ class Saved extends Component {
 			commentsCopy.splice(index, 1);
 			that.setState({comments: commentsCopy});
 		});
+	};
+
+	closeSavedModal = event => {
+		this.setState({savedModalTriggered: false, articlesSaved: []});
 	};
 
 	render() {
