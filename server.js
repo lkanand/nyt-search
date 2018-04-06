@@ -29,7 +29,11 @@ io.on("connection", function(socket) {
 		socket.broadcast.emit("saved article", article);
 	});
 
+	socket.on("unsaved article", function(article){
+		socket.broadcast.emit("unsaved article", article);
+	});
+
 	socket.on("disconnect", function(){
 		console.log("Socket " + socket.id + " disconnected");
-	})
+	});
 });

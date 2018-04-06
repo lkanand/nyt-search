@@ -20,6 +20,23 @@ class Search extends Component {
 		results: []
 	};
 
+	componentDidMount() {
+		this.props.socket.on("saved article", article => {
+			this.socketReverseSave(article.nytId);
+		});
+
+		this.props.socket.on("unsaved article", article => {
+			this.socketReverseSave(article.nytId);
+		});
+	};
+
+	socketReverseSave = nytId => {
+		for(var i = 0; i < this.state.results.length; i++) {
+			if(this.state.results[i]._id === nytId)
+				this.reverseSaved(i, "success");
+		}
+	};
+
 	handleInputChange = event => {
 		this.setState({[event.target.name]: event.target.value});
 	};
@@ -46,7 +63,7 @@ class Search extends Component {
 			}
 
 			Promise.all(promises).then(function() {
-				that.setState({topic: "", start: "", end: "", results: res.data.response.docs});
+				that.setState({results: res.data.response.docs});
 			});
 		}).catch(err => that.setState({results: err}));
 	};
@@ -65,6 +82,7 @@ class Search extends Component {
 		if(saved === false) {
 			API.saveArticle(this.state.results[index]).then(response => {
 				const article = {
+					nytId: this.state.results[index]._id,
 					title: this.state.results[index].headline.main
 				};
 				this.props.socket.emit("saved article", article);
@@ -73,6 +91,11 @@ class Search extends Component {
 		}
 		else {
 			API.deleteArticle(this.state.results[index]._id).then(response => {
+				const unsavedArticle = {
+					nytId: this.state.results[index]._id,
+					title: this.state.results[index].headline.main
+				};
+				this.props.socket.emit("unsaved article", unsavedArticle);
 				this.reverseSaved(index, response.data);
 			});
 		}

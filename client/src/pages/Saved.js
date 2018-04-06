@@ -20,6 +20,9 @@ class Saved extends Component {
 		this.props.socket.on("saved article", article => {
 			this.loadArticles();
 		});
+		this.props.socket.on("unsaved article", article => {
+			this.loadArticles();
+		});
 	};
 
 	loadArticles = () => {
@@ -34,8 +37,13 @@ class Saved extends Component {
 
 	reverseSaved = (index, response) => {
 		if(response === "success") {
+			const unsavedArticle = {
+				nytId: this.state.savedArticles[index].nytId,
+				title: this.state.savedArticles[index].title
+			};
 			let copyResults = this.state.savedArticles;
 			copyResults.splice(index, 1);
+			this.props.socket.emit("unsaved article", unsavedArticle);
 			this.setState({savedArticles: copyResults});
 		}
 		else

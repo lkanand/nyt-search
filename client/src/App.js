@@ -15,6 +15,7 @@ class App extends Component {
 	state = {
 		savedModalTriggered: false,
 		articlesSaved: [],
+		articlesUnsaved: []
 	};
 
 	componentDidMount() {
@@ -23,10 +24,16 @@ class App extends Component {
 			articlesSavedCopy.push(article.title);
 			this.setState({savedModalTriggered: true, articlesSaved: articlesSavedCopy});
 		});
+
+		socket.on("unsaved article", article => {
+			let articlesUnsavedCopy = this.state.articlesUnsaved;
+			articlesUnsavedCopy.push(article.title);
+			this.setState({savedModalTriggered: true, articlesUnsaved: articlesUnsavedCopy});
+		});
 	};
 
 	closeSavedModal = event => {
-		this.setState({savedModalTriggered: false, articlesSaved: []});
+		this.setState({savedModalTriggered: false, articlesSaved: [], articlesUnsaved: []});
 	};
 	
 	render() {
@@ -35,7 +42,8 @@ class App extends Component {
 				<div>
 					<Container fluid>
 						<Row>
-							<SavedModal closeSavedModal = {this.closeSavedModal} modalTriggered = {this.state.savedModalTriggered} articles = {this.state.articlesSaved}/>
+							<SavedModal closeSavedModal = {this.closeSavedModal} modalTriggered = {this.state.savedModalTriggered} savedArticles = {this.state.articlesSaved} 
+							unsavedArticles = {this.state.articlesUnsaved} />
 						</Row>
 						<Row>
 							<Header />
