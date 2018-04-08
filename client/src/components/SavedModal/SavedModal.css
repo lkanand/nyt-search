@@ -6,6 +6,7 @@
 	height: 100%;
 	width: 100%;
 	background-color: rgba(175, 175, 175, .5);
+	font-family: 'Arial';
 }
 
 .savedModalContent{
